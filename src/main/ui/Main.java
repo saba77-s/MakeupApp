@@ -1,7 +1,8 @@
 package ui;
 
 import java.util.Scanner;
-public class main {
+
+public class Main {
 
     public static void main(String[] args) {
         Scanner scanner;
@@ -16,21 +17,22 @@ public class main {
             System.out.println("please enter your email address!");
             u.email = b.nextLine();
             secondmethod(ans);
+            thirdmethod();
         }
+    }
 
+    public static void thirdmethod() {
         while (true) {
             Scanner inp;
             inp = new Scanner(System.in);
             System.out.println("Please select what you're looking for or type quit:");
-            String product = "";
-            product = inp.nextLine();
+            String product = inp.nextLine();
             System.out.println("you selected: " + product);
             if (product.equals("quit")) {
                 break;
             }
             if (product.equals("foundation")) {
-                System.out.println("Sabmetics approved foundSabais77+" +
-                        "ations are:");
+                System.out.println("Sabmetics approved foundSabais77+" + "ations are:");
                 System.out.println(ui.skin.Foundation());
             }
             if (product.equals("concealer")) {
@@ -42,11 +44,11 @@ public class main {
 
     }
 
-    public static void firstmethod(){
+    public static void firstmethod() {
         System.out.println("HEY,Welcome to Sabmetics!");
     }
 
-    public static void secondmethod(String arg){
-        System.out.println("Congrats!"+arg+"You're a Sabmetics member.");
+    public static void secondmethod(String arg) {
+        System.out.println("Congrats!" + arg + "You're a Sabmetics member.");
     }
 }
