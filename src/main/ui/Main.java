@@ -13,7 +13,7 @@ public class Main {
         ans = scanner.nextLine();
         if (ans.equals("Y")) {
             Scanner b = new Scanner(System.in);
-            member u = new member();
+            Member u = new Member();
             System.out.println("please enter your email address!");
             u.email = b.nextLine();
             secondmethod(ans);
@@ -33,11 +33,11 @@ public class Main {
             }
             if (product.equals("foundation")) {
                 System.out.println("Sabmetics approved foundSabais77+" + "ations are:");
-                System.out.println(ui.skin.Foundation());
+                System.out.println(ui.Skin.foundation());
             }
             if (product.equals("concealer")) {
                 System.out.println("Sabmetics approved concealers are:");
-                System.out.println(ui.skin.Concealers());
+                System.out.println(ui.Skin.concealers());
             }
         }
 
