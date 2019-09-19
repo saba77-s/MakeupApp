@@ -47,6 +47,6 @@ public class main {
     }
 
     public static void secondmethod(String arg){
-        System.out.println("Congrats!"+arg+"You're a Sabmetics member!");
+        System.out.println("Congrats!"+arg+"You're a Sabmetics member.");
     }
 }
