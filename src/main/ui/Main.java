@@ -45,7 +45,7 @@ public class Main {
     }
 
     public static void firstmethod() {
-        System.out.println("HEY,Welcome to Sabmetics!");
+        System.out.println("HEY,Welcome to Sabmetics:)");
     }
 
     public static void secondmethod(String arg) {
