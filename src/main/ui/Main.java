@@ -1,5 +1,6 @@
 package ui;
 
+
 import java.util.Scanner;
 
 public class Main {
@@ -8,16 +9,19 @@ public class Main {
         Scanner scanner;
         scanner = new Scanner(System.in);
         firstmethod();
+        Member u = new Member();
+        u.name = scanner.nextLine();
         String ans = "";
-        System.out.println("Do you want to become a member to get the latest updates Y/N?");
+        Scanner b = new Scanner(System.in);
+        System.out.println("Do you want to become a member to get the latest updates " + u.name + " Y/N?");
         ans = scanner.nextLine();
-        if (ans.equals("Y")) {
-            Scanner b = new Scanner(System.in);
-            Member u = new Member();
-            System.out.println("please enter your email address!");
-            u.email = b.nextLine();
-            secondmethod(ans);
-            thirdmethod();
+        if (u.email == "") {
+            if (ans.equals("Y")) {
+                System.out.println("please enter your email address!");
+                u.email = b.nextLine();
+                secondmethod(u.name);
+                thirdmethod();
+            }
         }
     }
 
@@ -31,13 +35,15 @@ public class Main {
             if (product.equals("quit")) {
                 break;
             }
+            if (product.equals("add favourite")) {
+                favourite();
+            }
             if (product.equals("foundation")) {
-                System.out.println("Sabmetics approved foundSabais77+" + "ations are:");
-                System.out.println(ui.Skin.foundation());
+                System.out.println("Sabmetics approved " + "foundations are:");
+                System.out.println(ui.Skin.foundationl);
             }
             if (product.equals("concealer")) {
                 System.out.println("Sabmetics approved concealers are:");
-                System.out.println(ui.Skin.concealers());
             }
         }
 
@@ -45,10 +51,23 @@ public class Main {
     }
 
     public static void firstmethod() {
-        System.out.println("HEY,Welcome to Sabmetics:)");
+        System.out.println("HEY,Welcome to Sabmetics please enter your name! :)");
     }
 
     public static void secondmethod(String arg) {
-        System.out.println("Congrats!" + arg + "You're a Sabmetics member.");
+        System.out.println("Congrats! " + arg + " You're a Sabmetics member.");
+    }
+
+    public static void favourite() {
+        Scanner scanner;
+        scanner = new Scanner(System.in);
+        System.out.println("please specify the type of your fave product ");
+        String foundation = scanner.nextLine();
+        String concealer = scanner.nextLine();
+        String contour = scanner.nextLine();
+        String primer = scanner.nextLine();
+        Skin skin = new Skin(foundation,concealer,contour,primer);
+        skin.insertf(foundation);
+
     }
 }

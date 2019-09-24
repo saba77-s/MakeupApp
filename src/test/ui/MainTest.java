@@ -1,5 +1,3 @@
-package ui;
-
-class MainTest {
+public class SkinTest{
 
 }
