@@ -1,37 +1,37 @@
 package ui;
 
 
+
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        Scanner scanner;
-        scanner = new Scanner(System.in);
-        firstmethod();
+        System.out.println(Integer.toString(40));
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("HEY,Welcome to Sabmetics please enter your name! :)");
         Member u = new Member();
         u.name = scanner.nextLine();
-        String ans = "";
         Scanner b = new Scanner(System.in);
         System.out.println("Do you want to become a member to get the latest updates " + u.name + " Y/N?");
-        ans = scanner.nextLine();
+        String ans = scanner.nextLine();
         if (u.email == "") {
             if (ans.equals("Y")) {
                 System.out.println("please enter your email address!");
                 u.email = b.nextLine();
-                secondmethod(u.name);
-                thirdmethod();
+                System.out.println("Congrats! " + u.name + " You're a Sabmetics member.");
             }
         }
+        System.out.println("please rate your skin tone from 1-10 (1:the lightest,10:the darkest)");
+        u.skinTone = scanner.nextLine();
+        userRequest();
     }
 
-    public static void thirdmethod() {
+    public static void userRequest() {
         while (true) {
-            Scanner inp;
-            inp = new Scanner(System.in);
             System.out.println("Please select what you're looking for or type quit:");
-            String product = inp.nextLine();
-            System.out.println("you selected: " + product);
+            Scanner scanner = new Scanner(System.in);
+            String product = scanner.nextLine();
             if (product.equals("quit")) {
                 break;
             }
@@ -39,24 +39,18 @@ public class Main {
                 favourite();
             }
             if (product.equals("foundation")) {
-                System.out.println("Sabmetics approved " + "foundations are:");
-                System.out.println(ui.Skin.foundationl);
+                System.out.println(Skin.foundationl);
             }
             if (product.equals("concealer")) {
                 System.out.println("Sabmetics approved concealers are:");
+                System.out.println(Skin.concealerl);
             }
         }
 
 
     }
 
-    public static void firstmethod() {
-        System.out.println("HEY,Welcome to Sabmetics please enter your name! :)");
-    }
 
-    public static void secondmethod(String arg) {
-        System.out.println("Congrats! " + arg + " You're a Sabmetics member.");
-    }
 
     public static void favourite() {
         Scanner scanner;
@@ -67,7 +61,10 @@ public class Main {
         String contour = scanner.nextLine();
         String primer = scanner.nextLine();
         Skin skin = new Skin(foundation,concealer,contour,primer);
-        skin.insertf(foundation);
+        skin.insert(foundation, skin.foundationl);
+        skin.insert(concealer,skin.concealerl);
+        skin.insert(contour,skin.contourl);
+        skin.insert(primer,skin.primerl);
 
     }
 }
