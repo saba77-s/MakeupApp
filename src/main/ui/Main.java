@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(Integer.toString(40));
         Scanner scanner = new Scanner(System.in);
         System.out.println("HEY,Welcome to Sabmetics please enter your name! :)");
         Member u = new Member();

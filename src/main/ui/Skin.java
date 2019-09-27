@@ -8,7 +8,7 @@ public class Skin {
     public String concealer;
     public String contour;
     public String primer;
-    static ArrayList<String> concealerl = new ArrayList<String>();
+    static ArrayList<String> concealerl = new ArrayList<>();
 
     {
         {
@@ -52,23 +52,26 @@ public class Skin {
 
         }
     }
-
+    //REQUIRES:
+    //MODIFIES:
+    //EFFECTS: CREATES AN OBJECT WITH FOUR DIFFERENT PARAMETERS
     public Skin(String f, String c, String co, String p) {
         foundation = f;
         concealer = c;
         contour = co;
         primer = p;
-        return;
     }
-
-
+    //Requires: i TO BE A NAME OF A FOUNDATION BRAND
+    //Modifies: FOUNDATION LIST
+    //Effects: ADDS THE NEW SKIN BRAND TO THE LIST IF IT DOESN'T ALREADY EXIST IN THERE
     public static void insert(String i, ArrayList foundationl) {
         if (!contains(i, foundationl)) {
             foundationl.add(i);
         }
     }
-
-
+    //REQUIRES:
+    //MODISIES:
+    //EFFECTS: RETURNS TRUE IF THE SKIN PRODUCT ALREADY EXIST IN THE LIST
     public static boolean contains(String foundation, ArrayList foundationl) {
         return foundationl.contains(foundation);
     }
