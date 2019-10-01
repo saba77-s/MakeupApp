@@ -58,7 +58,7 @@ public class SkinTest {
     }
 
     @Test
-    public void testInsert() {
+    void testInsert() {
         insert(String.valueOf(1),testarr);
         assertTrue(contains(String.valueOf(1),testarr));
         assertEquals(1, testarr.size());
