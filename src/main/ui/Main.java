@@ -1,12 +1,24 @@
 package ui;
 
+import model.Member;
+import model.Skin;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("HEY,Welcome to Sabmetics please enter your name! :)");
         Member u = new Member();
@@ -21,9 +33,10 @@ public class Main {
                 System.out.println("Congrats! " + u.name + " You're a Sabmetics member.");
             }
         }
-        System.out.println("please rate your skin tone from 1-10 (1:the lightest,10:the darkest)");
-        u.skinTone = scanner.nextLine();
         userRequest();
+        Skin s = new Skin();
+        s.save();
+        s.load();
     }
 
     public static void userRequest() {
@@ -35,13 +48,13 @@ public class Main {
                 break;
             }
             if (product.equals("add favourite")) {
-                favourite();
+                Skin s = new Skin();
+                favourite(s);
             }
             if (product.equals("foundation")) {
                 System.out.println(Skin.foundationl);
             }
             if (product.equals("concealer")) {
-                System.out.println("Sabmetics approved concealers are:");
                 System.out.println(Skin.concealerl);
             }
         }
@@ -50,20 +63,24 @@ public class Main {
     }
 
 
-
-    public static void favourite() {
+    public static void favourite(Skin s) {
         Scanner scanner;
         scanner = new Scanner(System.in);
         System.out.println("please specify the type of your fave product ");
         String foundation = scanner.nextLine();
+        Skin.setFoundation(foundation);
         String concealer = scanner.nextLine();
+        Skin.setConcealer(concealer);
         String contour = scanner.nextLine();
+        Skin.setContour(contour);
         String primer = scanner.nextLine();
-        Skin skin = new Skin(foundation,concealer,contour,primer);
-        skin.insert(foundation, skin.foundationl);
-        skin.insert(concealer,skin.concealerl);
-        skin.insert(contour,skin.contourl);
-        skin.insert(primer,skin.primerl);
+        Skin.setPrimer(primer);
+        s.insert(foundation, Skin.foundationl);
+        s.insert(concealer,Skin.concealerl);
+        s.insert(contour,Skin.contourl);
+        s.insert(primer,Skin.primerl);
 
     }
+
+
 }
