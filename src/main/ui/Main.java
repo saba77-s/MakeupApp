@@ -2,6 +2,7 @@ package ui;
 
 import model.Cosmetics;
 import model.Member;
+import model.SavableAndLoadable;
 import model.Skin;
 
 import java.io.FileNotFoundException;
@@ -35,7 +36,7 @@ public class Main {
             }
         }
         userRequest();
-        Skin s = new Skin();
+        SavableAndLoadable s = new Skin();
         s.save();
         s.load();
     }
