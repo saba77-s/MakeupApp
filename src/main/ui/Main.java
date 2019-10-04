@@ -1,5 +1,6 @@
 package ui;
 
+import model.Cosmetics;
 import model.Member;
 import model.Skin;
 
@@ -48,7 +49,7 @@ public class Main {
                 break;
             }
             if (product.equals("add favourite")) {
-                Skin s = new Skin();
+                Cosmetics s = new Skin();
                 favourite(s);
             }
             if (product.equals("foundation")) {
@@ -63,7 +64,7 @@ public class Main {
     }
 
 
-    public static void favourite(Skin s) {
+    public static void favourite(Cosmetics s) {
         Scanner scanner;
         scanner = new Scanner(System.in);
         System.out.println("please specify the type of your fave product ");
