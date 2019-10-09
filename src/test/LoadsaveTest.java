@@ -1,10 +1,8 @@
 import org.junit.jupiter.api.Test;
-import model.Skin;
+import model.SkinCosmetic;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
@@ -14,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class LoadsaveTest {
     @Test
     public void Savetest() throws IOException {
-        Skin s = new Skin();
+        SkinCosmetic s = new SkinCosmetic();
         s.foundation = "s";
         s.concealer = "l";
         s.contour = "k";
@@ -30,7 +28,7 @@ public class LoadsaveTest {
 
     @Test
     public void Loadtest() throws IOException {
-        Skin s = new Skin();
+        SkinCosmetic s = new SkinCosmetic();
         PrintWriter writer = new PrintWriter("inputfile.txt", "UTF-8");
         writer.println("l");
         writer.println("g");
@@ -38,10 +36,10 @@ public class LoadsaveTest {
         writer.println("o");
         writer.close();
         s.load();
-        assertEquals(Skin.getFoundation(),"l");
-        assertEquals(Skin.getConcealer(),"g");
-        assertEquals(Skin.getContour(),"i");
-        assertEquals(Skin.getPrimer(),"o");
+        assertEquals(SkinCosmetic.getFoundation(),"l");
+        assertEquals(SkinCosmetic.getConcealer(),"g");
+        assertEquals(SkinCosmetic.getContour(),"i");
+        assertEquals(SkinCosmetic.getPrimer(),"o");
     }
 
 
