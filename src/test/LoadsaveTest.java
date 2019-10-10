@@ -1,9 +1,6 @@
-import model.Lips;
-import model.Member;
-import model.SkinCare;
+import model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import model.SkinCosmetic;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -147,5 +144,7 @@ public class LoadsaveTest {
         assertEquals("d", s.getMoisturizer());
         assertEquals("a", s.getLotion());
     }
+
+
 
 }

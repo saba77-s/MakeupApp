@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class SkinCosmetic extends Skin {
     public static String foundation;
@@ -102,5 +103,6 @@ public class SkinCosmetic extends Skin {
         setContour(getContour());
         setPrimer(getPrimer());
     }
+
 
 }

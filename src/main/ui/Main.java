@@ -125,6 +125,9 @@ public class Main {
     public static void manageYourlist() {
         Scanner y = new Scanner(System.in);
         String d = y.nextLine();
+        if (d.equals("add to buy list")) {
+            toBuy();
+        }
         if (d.equals("cosmetics")) {
             favourite();
         }
@@ -134,6 +137,20 @@ public class Main {
         if (d.equals("lips")) {
             faveLip();
         }
+
+    }
+
+    public static void toBuy() {
+        Scanner t = new Scanner(System.in);
+        String r = t.nextLine();
+        ToBuy i = new Member();
+        if (r.equals("comment")) {
+            i.comment();
+        }
+        if (r.equals("list")) {
+            i.list();
+        }
+
 
     }
 }
