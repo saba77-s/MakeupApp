@@ -21,6 +21,7 @@ public abstract class Skin implements SavableAndLoadable {
             b.add(i);
         }
     }
+
     //REQUIRES:
     //MODISIES:
     //EFFECTS: RETURNS TRUE IF THE SKIN PRODUCT ALREADY EXIST IN THE LIST
