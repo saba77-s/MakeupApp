@@ -1,9 +1,7 @@
 package ui;
 
-import javafx.scene.control.Skin;
 import model.*;
 
-import java.util.Objects;
 import java.util.Scanner;
 import java.io.IOException;
 
@@ -32,18 +30,7 @@ public class Main {
             }
             if (product.equals("manage your lists")) {
                 System.out.println("cosmetics , skincare, lips ");
-                Scanner y = new Scanner(System.in);
-                String d = y.nextLine();
-                System.out.println(d.equals("lips"));
-                if (d.equals("cosmetics")) {
-                    favourite();
-                }
-                if (d.equals("skincare")) {
-                    faveCare();
-                }
-                if (d.equals("lips")) {
-                    faveLip();
-                }
+                manageYourlist();
             }
             if (product.equals("foundation")) {
                 System.out.println(SkinCosmetic.foundationl);
@@ -132,6 +119,21 @@ public class Main {
         SkinCosmetic.insert(concealer, SkinCosmetic.concealerl);
         SkinCosmetic.insert(contour, SkinCosmetic.contourl);
         SkinCosmetic.insert(primer, SkinCosmetic.primerl);
+
+    }
+
+    public static void manageYourlist() {
+        Scanner y = new Scanner(System.in);
+        String d = y.nextLine();
+        if (d.equals("cosmetics")) {
+            favourite();
+        }
+        if (d.equals("skincare")) {
+            faveCare();
+        }
+        if (d.equals("lips")) {
+            faveLip();
+        }
 
     }
 }
