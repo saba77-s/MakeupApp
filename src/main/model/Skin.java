@@ -47,6 +47,7 @@ public abstract class Skin implements SavableAndLoadable {
         setContour(lines.get(2));
         setPrimer(lines.get(3));
     }
+
 }
 
 
