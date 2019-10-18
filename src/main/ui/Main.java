@@ -1,5 +1,8 @@
 package ui;
 
+import exceptions.Bought;
+import exceptions.InvalidTone;
+import exceptions.Null;
 import model.*;
 
 import java.util.Scanner;
@@ -9,18 +12,21 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("HEY,Welcome to Sabmetics please enter your name! :)");
-        Member u = new Member();
-        u.name = scanner.nextLine();
-        Scanner b = new Scanner(System.in);
-        System.out.println("Do you want to become a member to get the latest updates " + u.name + " Y/N?");
+        System.out.println("HEY,Welcome to Sabmetics  :)");
+        System.out.println("Do you want to become a member to get the latest updates   Y/N?");
         String ans = scanner.nextLine();
-        email(u, ans, b);
-        userRequest();
-        loadSave();
+        email(ans);
+        try {
+            userRequest();
+        } catch (Bought bought) {
+            bought.printStackTrace();
+            System.out.println("make sure you haven't exceeded your monthly limit");
+        } finally {
+            System.out.println("money spent on mu Makeup far" + Budget.spent);
+        }
     }
 
-    public static void userRequest() {
+    public static void userRequest() throws Bought {
         System.out.println("Please select what you're looking for or type quit:");
         Scanner scanner = new Scanner(System.in);
         String product = scanner.nextLine();
@@ -28,8 +34,9 @@ public class Main {
             if (product.equals("quit")) {
                 System.exit(1);
             }
+
             if (product.equals("manage your lists")) {
-                System.out.println("cosmetics , skincare, lips ");
+                System.out.println("add to buy list Y/N ");
                 manageYourlist();
             }
             if (product.equals("foundation")) {
@@ -66,20 +73,17 @@ public class Main {
     }
 
 
-    public static void loadSave() throws IOException {
-        SavableAndLoadable s = new SkinCosmetic();
-        s.save();
-        s.load();
-    }
 
-    public static void email(Member u, String ans, Scanner b) {
-        if (u.email.equals("")) {
+    public static void email(String ans) {
+        Scanner b = new Scanner(System.in);
+        if (Member.email.equals("")) {
             if (ans.equals("Y")) {
                 System.out.println("please enter your email address!");
-                u.email = b.nextLine();
-                System.out.println("Congrats! " + u.name + " You're a Sabmetics member.");
+                Member.email = b.nextLine();
+                System.out.println("Congrats! " + Member.name + " You're a Sabmetics member.");
             }
         }
+
     }
 
 
@@ -122,12 +126,34 @@ public class Main {
 
     }
 
-    public static void manageYourlist() {
+    public static void manageYourlist() throws Bought {
         Scanner y = new Scanner(System.in);
         String d = y.nextLine();
-        if (d.equals("add to buy list")) {
-            toBuy();
+        if (d.equals("Y")) {
+            try {
+                System.out.println("type in what you're trying to buy");
+                String r = y.nextLine();
+                toBuy(r);
+            } catch (Null anull) {
+                anull.printStackTrace();
+                System.out.println("you need to add something");
+                throw new Bought();
+            } finally {
+                System.out.println("make sure you haven't bought it already");
+            }
+            userRequest();
+            fave(d);
         }
+    }
+
+    public static void toBuy(String r) throws Null {
+        if (r.equals(" ")) {
+            throw new Null();
+        }
+        Member.toBuy.add(r);
+    }
+
+    public static void fave(String d) {
         if (d.equals("cosmetics")) {
             favourite();
         }
@@ -137,20 +163,5 @@ public class Main {
         if (d.equals("lips")) {
             faveLip();
         }
-
-    }
-
-    public static void toBuy() {
-        Scanner t = new Scanner(System.in);
-        String r = t.nextLine();
-        ToBuy i = new Member();
-        if (r.equals("comment")) {
-            i.comment();
-        }
-        if (r.equals("list")) {
-            i.list();
-        }
-
-
     }
 }

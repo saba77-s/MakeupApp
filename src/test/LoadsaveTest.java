@@ -45,14 +45,6 @@ public class LoadsaveTest {
         assertEquals(SkinCosmetic.getPrimer(),"o");
     }
 
-    Member u =new Member();
-
-
-    @Test
-    public void personTest(){
-        assertEquals( u.name,"");
-        assertEquals( u.email,"");
-    }
 
     static ArrayList<String> testarr;
     public int NUMITEMS;

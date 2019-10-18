@@ -1,17 +1,21 @@
 package model;
 
-import java.util.Scanner;
+import exceptions.InvalidTone;
 
-public class Member extends ToBuy {
+import java.util.ArrayList;
 
-    public String name = "";
-    public String email = "";
-    public String skinTone = "";
+public class Member   {
 
+    public static String name = "";
+    public static String email = "";
+    public static ArrayList<String> toBuy = new ArrayList();
+    public static Integer tone;
 
-    public void comment() {
-        Scanner y = new Scanner(System.in);
-        String gi = y.nextLine();
-        com.add(gi);
+    public Member(Integer skinTone) throws InvalidTone {
+        if (skinTone < 0) {
+            throw new InvalidTone();
+        } else {
+            Member.tone = skinTone;
+        }
     }
 }
