@@ -10,12 +10,17 @@ import java.io.IOException;
 
 public class Main {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("HEY,Welcome to Sabmetics  :)");
-        System.out.println("Do you want to become a member to get the latest updates   Y/N?");
-        String ans = scanner.nextLine();
-        email(ans);
+        System.out.println("skin tone");
+        Integer a = Integer.valueOf(scanner.nextLine());
+        try {
+            Member u = new Member(a);
+        } catch (InvalidTone invalidTone) {
+            invalidTone.printStackTrace();
+            System.out.println("cant be negative ");
+        }
         try {
             userRequest();
         } catch (Bought bought) {
