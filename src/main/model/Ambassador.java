@@ -16,6 +16,10 @@ public class Ambassador {
 
     public void setBrands(Brands brands) {
         this.brands = brands;
+        if (Brands.getAmbassador() != this) {
+            brands.setAmbassador(this);
+        }
+
     }
 
     public void setFollowers(String followers) {
