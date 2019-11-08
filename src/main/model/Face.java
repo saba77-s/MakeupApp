@@ -9,9 +9,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-import static model.SkinCosmetic.*;
+import static model.FaceCosmetic.*;
 
-public abstract class Skin implements SavableAndLoadable {
+public abstract class Face implements SavableAndLoadable {
 
     //Requires: i TO BE A NAME OF A FOUNDATION BRAND
     //Modifies: FOUNDATION LIST

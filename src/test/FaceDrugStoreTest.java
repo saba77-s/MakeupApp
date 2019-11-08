@@ -1,4 +1,5 @@
-import model.SkinCosmetic;
+import model.Face;
+import model.FaceCosmetic;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class SkinDrugStoreTest {
+public class FaceDrugStoreTest {
     static ArrayList<String> testarr;
     public int NUMITEMS;
     @BeforeEach
@@ -20,16 +21,21 @@ public class SkinDrugStoreTest {
         String c = "b";
         String co = "c";
         String p = "d";
-        SkinCosmetic b = new SkinCosmetic();
+        FaceCosmetic b = new FaceCosmetic();
+        b.setFoundation(f);
+        b.setConcealer(c);
+        b.setPrimer(p);
+        b.setContour(co);
         assertEquals(b.getFoundation(),f);
         assertEquals(b.getConcealer(),c);
         assertEquals(b.contour,co);
         assertEquals(b.primer,p);
     }
 
+
     @Test
     public void testSize() {
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         assertEquals(0, testarr.size());
         for (int i = 0; i < NUMITEMS; i++) {
             s.insert(String.valueOf(i),testarr);
@@ -40,7 +46,7 @@ public class SkinDrugStoreTest {
 
     @Test
     public void testContainsOne() {
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         assertFalse(s.contains(String.valueOf(1),testarr));
         s.insert(String.valueOf(1),testarr);
         assertTrue(s.contains(String.valueOf(1),testarr));
@@ -48,7 +54,7 @@ public class SkinDrugStoreTest {
 
     @Test
     public void testContainsLots(){
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         for (int i = 0; i<NUMITEMS;i++) {
             s.insert(String.valueOf(i),testarr);
         }
@@ -59,7 +65,7 @@ public class SkinDrugStoreTest {
 
     @Test
     void testInsert() {
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         s.insert(String.valueOf(1),testarr);
         assertTrue(s.contains(String.valueOf(1),testarr));
         assertEquals(1, testarr.size());
@@ -67,7 +73,7 @@ public class SkinDrugStoreTest {
 
     @Test
     public void testDuplicate(){
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         s.insert(String.valueOf(6),testarr);
         s.insert(String.valueOf(6),testarr);
         assertTrue(s.contains(String.valueOf(6),testarr));

@@ -1,12 +1,12 @@
-import model.SkinCare;
+import model.FaceCare;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class testSkinCare {
+public class testFaceCare {
     @Test
     public void testSkinCare(){
-        SkinCare s = new SkinCare();
+        FaceCare s = new FaceCare();
         s.setScrub("Y");
         s.setEyeCream("G");
         s.setFaceWash("j");

@@ -6,7 +6,6 @@ import exceptions.Null;
 import model.*;
 
 import java.util.Scanner;
-import java.io.IOException;
 
 public class Main {
 
@@ -45,10 +44,10 @@ public class Main {
                 manageYourlist();
             }
             if (product.equals("foundation")) {
-                System.out.println(SkinCosmetic.foundationl);
+                System.out.println(FaceCosmetic.foundationl);
             }
             if (product.equals("concealer")) {
-                System.out.println(SkinCosmetic.concealerl);
+                System.out.println(FaceCosmetic.concealerl);
             }
         }
     }
@@ -61,20 +60,20 @@ public class Main {
         scanner = new Scanner(System.in);
         System.out.println("please specify your fave scrub, eye cream, face wash, moisturizer, lotion");
         String scrub = scanner.nextLine();
-        SkinCare.setScrub(scrub);
+        FaceCare.setScrub(scrub);
         String eyeCream = scanner.nextLine();
-        SkinCare.setEyeCream(eyeCream);
+        FaceCare.setEyeCream(eyeCream);
         String faceWash = scanner.nextLine();
-        SkinCare.setFaceWash(faceWash);
+        FaceCare.setFaceWash(faceWash);
         String moisturizer = scanner.nextLine();
-        SkinCare.setMoisturizer(moisturizer);
+        FaceCare.setMoisturizer(moisturizer);
         String lotion = scanner.nextLine();
-        SkinCare.setLotion(lotion);
-        SkinCare.insert(scrub, SkinCare.scrubl);
-        SkinCare.insert(eyeCream, SkinCare.eyeCreaml);
-        SkinCare.insert(faceWash, SkinCare.faceWashl);
-        SkinCare.insert(moisturizer, SkinCare.moisturizerl);
-        SkinCare.insert(lotion, SkinCare.lotionl);
+        FaceCare.setLotion(lotion);
+        FaceCare.insert(scrub, FaceCare.scrubl);
+        FaceCare.insert(eyeCream, FaceCare.eyeCreaml);
+        FaceCare.insert(faceWash, FaceCare.faceWashl);
+        FaceCare.insert(moisturizer, FaceCare.moisturizerl);
+        FaceCare.insert(lotion, FaceCare.lotionl);
     }
 
 
@@ -99,7 +98,7 @@ public class Main {
         if (h.equals("add to bought list")) {
             System.out.println("please type your recent bought item");
             String b = a.nextLine();
-            model.Skin.insert(b, Lips.bought);
+            Face.insert(b, Lips.bought);
             System.out.println("added!");
         } else if (h.equals("check availability")) {
             System.out.println("type the item's name");
@@ -107,7 +106,7 @@ public class Main {
             System.out.println("added!");
         } else if (h.equals("add to favourite")) {
             System.out.println("type the item's name");
-            SkinCare.insert(a.nextLine(), Lips.fave);
+            FaceCare.insert(a.nextLine(), Lips.fave);
             System.out.println("added!");
         }
     }
@@ -117,17 +116,17 @@ public class Main {
         scanner = new Scanner(System.in);
         System.out.println("please type the name of your fave product ");
         String foundation = scanner.nextLine();
-        SkinCosmetic.setFoundation(foundation);
+        FaceCosmetic.setFoundation(foundation);
         String concealer = scanner.nextLine();
-        SkinCosmetic.setConcealer(concealer);
+        FaceCosmetic.setConcealer(concealer);
         String contour = scanner.nextLine();
-        SkinCosmetic.setContour(contour);
+        FaceCosmetic.setContour(contour);
         String primer = scanner.nextLine();
-        SkinCosmetic.setPrimer(primer);
-        SkinCosmetic.insert(foundation, SkinCosmetic.foundationl);
-        SkinCosmetic.insert(concealer, SkinCosmetic.concealerl);
-        SkinCosmetic.insert(contour, SkinCosmetic.contourl);
-        SkinCosmetic.insert(primer, SkinCosmetic.primerl);
+        FaceCosmetic.setPrimer(primer);
+        FaceCosmetic.insert(foundation, FaceCosmetic.foundationl);
+        FaceCosmetic.insert(concealer, FaceCosmetic.concealerl);
+        FaceCosmetic.insert(contour, FaceCosmetic.contourl);
+        FaceCosmetic.insert(primer, FaceCosmetic.primerl);
 
     }
 
@@ -156,6 +155,7 @@ public class Main {
             throw new Null();
         }
         Member.toBuy.add(r);
+        new Matcher();
     }
 
     public static void fave(String d) {

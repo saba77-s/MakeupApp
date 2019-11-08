@@ -2,7 +2,7 @@ package model;
 
 import java.util.ArrayList;
 
-public class SkinCare extends SkinCosmetic {
+public class FaceCare extends FaceCosmetic {
     private static String scrub;
     private static String eyeCream;
     private static String faceWash;
@@ -108,7 +108,7 @@ public class SkinCare extends SkinCosmetic {
     }
 
 
-    public SkinCare() {
+    public FaceCare() {
         setScrub(getScrub());
         setEyeCream(getEyeCream());
         setFaceWash(getFaceWash());

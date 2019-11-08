@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoadsaveTest {
     @Test
     public void Savetest() throws IOException {
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         s.foundation = "s";
         s.concealer = "l";
         s.contour = "k";
@@ -31,7 +31,7 @@ public class LoadsaveTest {
 
     @Test
     public void Loadtest() throws IOException {
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         PrintWriter writer = new PrintWriter("inputfile.txt", "UTF-8");
         writer.println("l");
         writer.println("g");
@@ -39,10 +39,10 @@ public class LoadsaveTest {
         writer.println("o");
         writer.close();
         s.load();
-        assertEquals(SkinCosmetic.getFoundation(),"l");
-        assertEquals(SkinCosmetic.getConcealer(),"g");
-        assertEquals(SkinCosmetic.getContour(),"i");
-        assertEquals(SkinCosmetic.getPrimer(),"o");
+        assertEquals(FaceCosmetic.getFoundation(),"l");
+        assertEquals(FaceCosmetic.getConcealer(),"g");
+        assertEquals(FaceCosmetic.getContour(),"i");
+        assertEquals(FaceCosmetic.getPrimer(),"o");
     }
 
 
@@ -57,7 +57,7 @@ public class LoadsaveTest {
         String c = "b";
         String co = "c";
         String p = "d";
-        SkinCosmetic b = new SkinCosmetic();
+        FaceCosmetic b = new FaceCosmetic();
         b.setFoundation(f);
         b.setConcealer(c);
         b.setContour(co);
@@ -70,7 +70,7 @@ public class LoadsaveTest {
 
     @Test
     public void testSize() {
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         assertEquals(0, testarr.size());
         for (int i = 0; i < NUMITEMS; i++) {
             s.insert(String.valueOf(i),testarr);
@@ -81,7 +81,7 @@ public class LoadsaveTest {
 
     @Test
     public void testContainsOne() {
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         assertFalse(s.contains(String.valueOf(1),testarr));
         s.insert(String.valueOf(1),testarr);
         assertTrue(s.contains(String.valueOf(1),testarr));
@@ -89,7 +89,7 @@ public class LoadsaveTest {
 
     @Test
     public void testContainsLots(){
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         for (int i = 0; i<NUMITEMS;i++) {
             s.insert(String.valueOf(i),testarr);
         }
@@ -100,7 +100,7 @@ public class LoadsaveTest {
 
     @Test
     void testInsert() {
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         s.insert(String.valueOf(1),testarr);
         assertTrue(s.contains(String.valueOf(1),testarr));
         assertEquals(1, testarr.size());
@@ -108,7 +108,7 @@ public class LoadsaveTest {
 
     @Test
     public void testDuplicate(){
-        SkinCosmetic s = new SkinCosmetic();
+        FaceCosmetic s = new FaceCosmetic();
         s.insert(String.valueOf(6),testarr);
         s.insert(String.valueOf(6),testarr);
         assertTrue(s.contains(String.valueOf(6),testarr));
@@ -124,7 +124,7 @@ public class LoadsaveTest {
 
     @Test
     public void testSkinCare() {
-        SkinCare s = new SkinCare();
+        FaceCare s = new FaceCare();
         s.setScrub("Y");
         s.setEyeCream("G");
         s.setFaceWash("j");
