@@ -10,9 +10,8 @@ public class BeautyShop {
     private BookingsManager bookingsManager;
     private StoreSuggester storeSuggester;
 
-    public BeautyShop() {
-
-        bookingsManager = new BookingsManager();
+    public BeautyShop(int hours) {
+        bookingsManager = new BookingsManager(hours);
         storeSuggester = new StoreSuggester();
     }
 
@@ -24,8 +23,8 @@ public class BeautyShop {
         return bookingsManager.cancelBooking(m,bookingTime);
     }
 
-    public void suggestStore(Member member) {
-        storeSuggester.suggestStore(member);
+    public Store suggestStore(Member member) {
+        return storeSuggester.suggestStore(member);
 
     }
 
@@ -36,7 +35,6 @@ public class BeautyShop {
     public void changeStoreHours(int hours,Store store) {
         storeSuggester.changeStoreHours(hours,store);
     }
-
 
     public void changeBooking(Member m,int newTime) {
         bookingsManager.changeBooking(m,newTime);

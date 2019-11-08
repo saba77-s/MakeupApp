@@ -6,9 +6,9 @@ public class BookingsManager {
 
     private ArrayList<Member> bookings;
 
-    public BookingsManager() {
+    public BookingsManager(int hours) {
         bookings = new ArrayList<>();
-        for (int i = 0;i <= 8;i++) {
+        for (int i = 0;i <= hours;i++) {
             bookings.add(i,null);
         }
     }
@@ -55,6 +55,5 @@ public class BookingsManager {
         }
         System.out.println("Booking not found:(");
         return false;
-//    }
     }
 }
