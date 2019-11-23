@@ -8,7 +8,7 @@ public class AmbassadorTest {
     @Test
     public void getAmbassadorTest() {
         Ambassador a = new Ambassador("9m","t");
-        Brands b = new Brands("s",a,700);
+        Brands b = new Brands("s",700);
         a.setName("o");
         assertEquals(a.getName(),"o");
         a.setFollowers("6m");

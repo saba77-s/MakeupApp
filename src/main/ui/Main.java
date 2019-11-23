@@ -4,22 +4,19 @@ import exceptions.Bought;
 import exceptions.InvalidTone;
 import exceptions.Null;
 import model.*;
+import network.WebReader;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
+        Matcher m = new Matcher();
+        m.set();
+        new Gui();
         Scanner scanner = new Scanner(System.in);
         System.out.println("HEY,Welcome to Sabmetics  :)");
-        System.out.println("skin tone");
-        Integer a = Integer.valueOf(scanner.nextLine());
-        try {
-            Member u = new Member(a);
-        } catch (InvalidTone invalidTone) {
-            invalidTone.printStackTrace();
-            System.out.println("cant be negative ");
-        }
         try {
             userRequest();
         } catch (Bought bought) {
@@ -31,7 +28,7 @@ public class Main {
     }
 
     public static void userRequest() throws Bought {
-        System.out.println("Please select what you're looking for or type quit:");
+        System.out.println("Please select online shop, foundation, concealer or type quit:");
         Scanner scanner = new Scanner(System.in);
         String product = scanner.nextLine();
         while (true) {
@@ -39,7 +36,7 @@ public class Main {
                 System.exit(1);
             }
 
-            if (product.equals("manage your lists")) {
+            if (product.equals("online shop")) {
                 System.out.println("add to buy list Y/N ");
                 manageYourlist();
             }
@@ -74,20 +71,6 @@ public class Main {
         FaceCare.insert(faceWash, FaceCare.faceWashl);
         FaceCare.insert(moisturizer, FaceCare.moisturizerl);
         FaceCare.insert(lotion, FaceCare.lotionl);
-    }
-
-
-
-    public static void email(String ans) {
-        Scanner b = new Scanner(System.in);
-        if (Member.email.equals("")) {
-            if (ans.equals("Y")) {
-                System.out.println("please enter your email address!");
-                Member.email = b.nextLine();
-                System.out.println("Congrats! " + Member.name + " You're a Sabmetics member.");
-            }
-        }
-
     }
 
 
@@ -138,7 +121,7 @@ public class Main {
                 System.out.println("type in what you're trying to buy");
                 String r = y.nextLine();
                 toBuy(r);
-            } catch (Null anull) {
+            } catch (Null | IOException anull) {
                 anull.printStackTrace();
                 System.out.println("you need to add something");
                 throw new Bought();
@@ -150,9 +133,14 @@ public class Main {
         }
     }
 
-    public static void toBuy(String r) throws Null {
+    public static void toBuy(String r) throws Null, IOException {
         if (r.equals(" ")) {
             throw new Null();
+        }
+
+        if (r.equals("sephora")) {
+            WebReader w = new WebReader();
+            w.webReader();
         }
         Member.toBuy.add(r);
         new Matcher();

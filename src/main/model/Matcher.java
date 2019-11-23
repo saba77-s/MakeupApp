@@ -14,9 +14,9 @@ public class Matcher {
     Ambassador anncy = new Ambassador("1m", "anncy");
     Ambassador jas = new Ambassador("500k", "jas");
 
-    Brands loreal = new Brands("LOreal", tammy, 2000);
-    Brands maybeline = new Brands("Mybeline", lora, 6000);
-    Brands rimmel = new Brands("Rimmel", james, 10000);
+    Brands loreal = new Brands("LOreal", 2000);
+    Brands maybeline = new Brands("Mybeline", 6000);
+    Brands rimmel = new Brands("Rimmel",  10000);
 
     public Matcher() {
         influence.put(loreal, new ArrayList<>());
@@ -34,6 +34,11 @@ public class Matcher {
         tempInfluenceR.add(jake);
         tempInfluenceR.add(anncy);
         tempInfluenceR.add(jas);
+    }
+
+    public void set() {
+        Brands b = new Brands("g",9);
+        b.setAmbassador(new Ambassador("3m","s"));
     }
 
 

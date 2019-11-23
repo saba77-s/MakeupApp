@@ -1,5 +1,7 @@
 package model;
 
+import observer.Subject;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +27,6 @@ public class BeautyShop {
 
     public Store suggestStore(Member member) {
         return storeSuggester.suggestStore(member);
-
     }
 
     public void addStore(Store store) {

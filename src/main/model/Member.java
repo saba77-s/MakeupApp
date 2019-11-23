@@ -7,18 +7,14 @@ import java.util.ArrayList;
 public class Member   {
 
     private int bookedTime;
-    public static String name = "";
-    public static String email = "";
+    private static String name = "";
+    private static String email = "";
     public static ArrayList<String> toBuy = new ArrayList();
     public static Integer tone;
     private String address;
 
-    public Member(Integer skinTone) throws InvalidTone {
-        if (skinTone < 0) {
-            throw new InvalidTone();
-        } else {
-            Member.tone = skinTone;
-        }
+    public Member(String name) {
+        this.name = name;
     }
 
     public void setBookedTime(int time) {
@@ -35,5 +31,21 @@ public class Member   {
 
     public String getAddress() {
         return address;
+    }
+
+    public static String getName() {
+        return name;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

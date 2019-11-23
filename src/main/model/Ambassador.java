@@ -1,13 +1,15 @@
 package model;
 
-public class Ambassador {
+import observer.BrandObservers;
+
+public class Ambassador implements BrandObservers {
     private String followers;
     private String name;
     private Brands brands;
 
-    public Ambassador(String followers, String name) {
+    public Ambassador(String followers, String username) {
         this.followers = followers;
-        this.name = name;
+        this.name = username;
     }
 
     public void setName(String name) {
@@ -36,5 +38,10 @@ public class Ambassador {
 
     public String getFollowers() {
         return this.followers;
+    }
+
+    @Override
+    public void update(Brands brand) {
+        System.out.println("new brand has been added!" + brand);
     }
 }

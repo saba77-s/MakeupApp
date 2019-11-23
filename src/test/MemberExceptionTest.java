@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.fail;
 
 public class MemberExceptionTest {
-    @Test
+  /*  @Test
     public void negativeSkinTone(){
         try {
             Member u = new Member(-10);
@@ -24,5 +24,5 @@ public class MemberExceptionTest {
             invalidTone.printStackTrace();
             fail("got exception InvalidTone when we shouldn't have");
         }
-    }
+    }*/
 }

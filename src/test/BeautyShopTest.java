@@ -16,7 +16,7 @@ public class BeautyShopTest {
 
     @BeforeEach
     public void runBefore() throws InvalidTone {
-        member = new Member(8);
+        member = new Member("8");
         store = new Store("georgia",9);
         beautyShop = new BeautyShop(7);
     }

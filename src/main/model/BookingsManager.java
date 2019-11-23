@@ -17,7 +17,7 @@ public class BookingsManager {
         if (invalidBookingTime(bookingTime >= bookings.size(), "We can't process that booking time")) {
             return false;
         }
-        System.out.println("Customer " + m.name + " has been booked at " + bookingTime);
+        System.out.println("Customer " + m.getName() + " has been booked at " + bookingTime);
         bookings.set(bookingTime,m);
         m.setBookedTime(bookingTime);
         return true;
@@ -43,7 +43,7 @@ public class BookingsManager {
 
     public void changeBooking(Member m,int newTime) {
         int bookedTime = m.getBookedTime();
-        System.out.print(m.name + "'s time is changing from " + bookedTime);
+        System.out.print(m.getName() + "'s time is changing from " + bookedTime);
         System.out.println(" to " + newTime);
         cancelBooking(m, bookedTime);
         makeNewBookings(m,newTime);

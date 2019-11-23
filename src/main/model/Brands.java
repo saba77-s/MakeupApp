@@ -1,15 +1,16 @@
 package model;
 
+import observer.Subject;
+
 import java.util.Objects;
 
-public class Brands {
+public class Brands extends Subject {
     private String name;
     private static Ambassador ambassador;
     private int pay;
 
-    public Brands(String name,Ambassador ambassador,int pay) {
+    public Brands(String name, int pay) {
         this.name = name;
-        this.ambassador = ambassador;
         this.pay = pay;
     }
 
@@ -22,6 +23,8 @@ public class Brands {
         if (ambassador.getBrands() != this) {
             ambassador.setBrands(this);
         }
+        addObserver(ambassador);
+        notifyObservers(this);
     }
 
     public void setPay(int pay) {
