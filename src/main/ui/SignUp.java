@@ -16,12 +16,13 @@ public class SignUp {
 
     public void signUp() {
         JFrame f = new JFrame("Sabmetics");
+        f.getContentPane().setBackground(Color.PINK);
         f.setVisible(true);
         final JTextField tf = new JTextField("Enter your email here!");
         final JTextField tff = new JTextField("Enter your name here!");
-        tff.setBounds(90, 80, 200, 20);
+        tff.setBounds(90, 80, 220, 20);
         JButton bb = new JButton("What do you want us to call you?");
-        bb.setBounds(70, 100, 220, 60);
+        bb.setBounds(90, 100, 220, 60);
         signUpHelper(bb, f, tff, tf);
     }
 
@@ -39,7 +40,7 @@ public class SignUp {
                 actionHelperYoYo(y,j,tf,m);
                 j.add(y);
                 j.add(actionHelperYoYo(y,j,tf,m));
-                j.setSize(600, 600);
+                j.setSize(400, 400);
                 j.setVisible(true);
             }
         });
@@ -59,9 +60,9 @@ public class SignUp {
                 j.setVisible(false);
                 JFrame em = new JFrame();
                 helperV(tf,em);
-                tf.setBounds(200, 50, 200, 50);
+                tf.setBounds(10, 50, 200, 50);
                 JButton ok = new JButton("Sign me up");
-                ok.setBounds(200, 200, 90, 50);
+                ok.setBounds(10, 100, 90, 50);
                 em.setVisible(true);
                 em.add(ok);
                 ok.addActionListener(new ActionListener() {
@@ -113,6 +114,7 @@ public class SignUp {
 
     public void userReqPage() {
         JFrame r = new JFrame("Select what you're looking for");
+        r.getContentPane().setBackground(Color.PINK);
         r.setBackground(Color.pink);
         JButton quit = new JButton("Quit");
         quit.setBounds(10, 90, 50, 60);
@@ -125,6 +127,7 @@ public class SignUp {
     }
 
     public void userReqPageHelp(JFrame r,JButton quit) {
+        JButton addFave = new JButton("set your faves");
         JButton onlineShop = new JButton("Online shop");
         JButton ambassador = new JButton("Become an embassador!");
         onlineShop.setBounds(70,90,100,60);
@@ -142,7 +145,7 @@ public class SignUp {
                 beAmbassador();
             }
         });
-        userReqPageHelperHelper(r,quit,ambassador,onlineShop);
+        userReqPageHelperHelper(r,quit,ambassador,onlineShop,addFave);
     }
 
     public void actionPerformedHelperYo(JFrame r) {
@@ -155,7 +158,15 @@ public class SignUp {
         }
     }
 
-    public void userReqPageHelperHelper(JFrame r, JButton quit,JButton ambassador,JButton onlineShop) {
+    public void userReqPageHelperHelper(JFrame r, JButton quit,JButton ambassador,JButton onlineShop,JButton addFave) {
+        addFave.setBounds(100,150,100,60);
+        addFave.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Fave f = new Fave();
+            }
+        });
+        r.add(addFave);
         r.add(quit);
         r.add(ambassador);
         r.add(onlineShop);
